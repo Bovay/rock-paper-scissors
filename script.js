@@ -1,3 +1,8 @@
+let humanScore = 0;
+let computerScore = 0;
+const computerSelection = getComputerChoice();
+const humanSelection = getUserChoice();
+
 //0 = rock, 1 = paper, 2 = scissors
 
 function getComputerChoice(){
@@ -6,13 +11,13 @@ function getComputerChoice(){
     compChoice = "";
     switch (random){
         case 0:
-            compChoice = "Rock";
+            compChoice = "rock";
             break;
         case 1:
-            compChoice = "Paper";
+            compChoice = "paper";
             break;
         case 2:
-            compChoice = "Scissors";
+            compChoice = "scissors";
             break;
     }
     console.log(compChoice); // making sure that it matches what was rolled
@@ -20,10 +25,19 @@ function getComputerChoice(){
 }
 
 function getUserChoice(){
-    userChoice = prompt("Rock, Paper, or Scissors?");
-    console.log(userChoice); // logging to make sure prompt works
-    return userChoice;
+    while (true){
+        userChoice = prompt("Rock, Paper, or Scissors").toLowerCase();
+        if (userChoice == "rock" || userChoice == "paper" || userChoice == "scissors"){
+            console.log(userChoice);
+            return userChoice;
+        } else {
+            alert("Invaild Reponse, Try Again");
+        }
+    }
+    return 0; // if this returns there is some massive error happening
 }
 
-getComputerChoice();
-getUserChoice();
+function playRound(humanChoice, computerChoice){
+
+}
+
